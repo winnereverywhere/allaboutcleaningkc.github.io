@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - All About Cleaning</title>
+    <link rel="stylesheet" href="css/contact-form.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="progress-bar">
+            <div class="progress-step active" data-step="1">
+                <div class="step-number">1</div>
+                <div class="step-label">Property Type</div>
+            </div>
+            <div class="progress-step" data-step="2">
+                <div class="step-number">2</div>
+                <div class="step-label">Details</div>
+            </div>
+            <div class="progress-step" data-step="3">
+                <div class="step-number">3</div>
+                <div class="step-label">Contact Info</div>
+            </div>
+        </div>
+
+        <form id="contactForm">
+            <div class="form-step active" data-step="1">
+                <h2>What type of property needs cleaning?</h2>
+                <div class="property-options">
+                    <label class="property-option">
+                        <input type="radio" name="propertyType" value="residential" required>
+                        <div class="option-card">
+                            <div class="option-icon">🏠</div>
+                            <div class="option-content">
+                                <div class="option-title">Residential</div>
+                                <div class="option-description">House, apartment, or condo</div>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="property-option">
+                        <input type="radio" name="propertyType" value="commercial" required>
+                        <div class="option-card">
+                            <div class="option-icon">🏢</div>
+                            <div class="option-content">
+                                <div class="option-title">Commercial</div>
+                                <div class="option-description">Office, retail, or business space</div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+                <h2>Tell us more about your cleaning needs</h2>
+                <div class="form-group">
+                    <label for="details">Any specific details or requirements?</label>
+                    <textarea id="details" name="details" rows="6" placeholder="E.g., size of property, specific areas to focus on, preferred cleaning frequency, special requests..."></textarea>
+                </div>
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-back">Back</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+                <h2>How can we reach you?</h2>
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="(913) 555-1234">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-back">Back</button>
+                    <button type="submit" class="btn btn-submit">Get Your Free Estimate</button>
+                </div>
+            </div>
+
+            <div class="form-step success-message" data-step="success">
+                <div class="success-icon">✓</div>
+                <h2>Thank you for contacting us!</h2>
+                <p>We've received your request and will get back to you shortly to discuss your cleaning needs.</p>
+                <p>One of our team members will contact you within 24 hours.</p>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/contact-form.js"></script>
+</body>
+</html>
