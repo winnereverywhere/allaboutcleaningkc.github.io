@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const formSteps = document.querySelectorAll('.form-step');
-    const progressSteps = document.querySelectorAll('.progress-step');
+    const progressBarFill = document.getElementById('progressBarFill');
     const nextButtons = document.querySelectorAll('.btn-next');
     const backButtons = document.querySelectorAll('.btn-back');
     const propertyTypeRadios = document.querySelectorAll('input[name="propertyType"]');
@@ -24,20 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
             step.classList.remove('active');
         });
 
-        progressSteps.forEach(step => {
-            const stepNum = parseInt(step.dataset.step);
-            step.classList.remove('active', 'completed');
-
-            if (stepNum === stepNumber) {
-                step.classList.add('active');
-            } else if (stepNum < stepNumber) {
-                step.classList.add('completed');
-            }
-        });
-
         const currentFormStep = document.querySelector(`.form-step[data-step="${stepNumber}"]`);
         if (currentFormStep) {
             currentFormStep.classList.add('active');
+        }
+
+        const progressPercentage = (stepNumber / totalSteps) * 100;
+        if (progressBarFill) {
+            progressBarFill.style.width = progressPercentage + '%';
         }
 
         currentStep = stepNumber;
@@ -139,10 +133,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     successStep.classList.add('active');
                 }
 
-                progressSteps.forEach(step => {
-                    step.classList.add('completed');
-                    step.classList.remove('active');
-                });
+                if (progressBarFill) {
+                    progressBarFill.style.width = '100%';
+                }
 
                 form.reset();
             } else {
